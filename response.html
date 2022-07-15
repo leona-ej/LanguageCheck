@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login form</title>
+  <link rel="stylesheet" href="response.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script>
+    function back() {
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'GET',
+      }).then(res => res.json())
+        .catch(error => {
+          console.error('Error:', error);
+        })
+        .then(response => {
+
+          var check = document.getElementById("che");
+
+          var res = document.getElementById("res");
+          res.innerHTML = response[(o - 1)].title;
+          var resi = document.getElementById("resi");
+          resi.innerHTML = response[(o - 1)].body;
+          o = o - 1;
+
+        });
+    }
+
+    function next() {
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'GET',
+      }).then(res => res.json())
+        .catch(error => {
+          console.error('Error:', error);
+        })
+        .then(response => {
+
+          var check = document.getElementById("che");
+
+          var res = document.getElementById("res");
+          res.innerHTML = response[(o)].title;
+          var resi = document.getElementById("resi");
+          resi.innerHTML = response[(o)].body;
+          o = o + 1;
+
+        });
+    }
+
+
+
+
+
+
+
+    function request() {
+      let h = prompt("Please enter the userId you want");
+      let k = prompt("Please enter the Id you want");
+      var userId = parseInt(h)
+
+      var id = parseInt(k)
+      const q = {
+        1: 1,
+        2: 11,
+        3: 21,
+        4: 31,
+        5: 41,
+        6: 51,
+        7: 61,
+        8: 71,
+        9: 81,
+        10: 91
+      }
+      const m = q[h]
+      var i;
+      var j;
+
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'GET',
+      }).then(res => res.json())
+        .catch(error => {
+          console.error('Error:', error);
+        })
+        .then(response => {
+
+
+
+          for (j = m; j < (m + 10); j++) {
+            console.log("i value = " + j + " k =" + id);
+            if ((response[j].id) == id) {
+
+
+              var tl = document.getElementById("title");
+              tl.innerHTML = "Title : ";
+              var res = document.getElementById("res");
+              res.innerHTML = response[j].title;
+              var bod = document.getElementById("bod");
+              bod.innerHTML = "Body : ";
+              var resi = document.getElementById("resi");
+              resi.innerHTML = response[j].body;
+
+              globalThis.o = j;
+            }
+          }
+
+
+
+        });
+    }
+
+
+    function requestall() {
+      let h = prompt("Please enter the ID of the user whose posts you want to view");
+      var userId = parseInt(h)
+
+      const q = {
+        1: 1,
+        2: 11,
+        3: 21,
+        4: 31,
+        5: 41,
+        6: 51,
+        7: 61,
+        8: 71,
+        9: 81,
+        10: 91
+      }
+      const m = q[h]
+
+      var i;
+      var g;
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'GET',
+      }).then(res => res.json())
+        .catch(error => {
+          console.error('Error:', error);
+        })
+        .then(responses => {
+
+
+          for (i = 0; i < 100; i++) {
+            var z = 1;
+            if ((responses[i].userId) === userId) {
+              for (g = m; g < (m + 10); g++) {
+
+
+
+                var res = document.getElementById("ress" + z);
+                res.innerHTML = "Title : " + responses[g].title + "<br> BODY : " + responses[g].body + "<br>-------------";
+
+
+                z = z + 1;
+              }
+            }
+          }
+
+        });
+    }
+
+  </script>
+
+
+
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <p>Click the button to display a specific post of your preferred user</p>
+    <button class="but" onclick="back()">
+      < </button>
+        <button onclick="request()">Display Data</button>
+        <button class="but" onclick="next()">> </button><br>
+
+
+        <div id="title"></div>
+        <div id="res"></div><br>
+        <div id="bod"></div>
+        <div id="resi"></div>
+
+  </div>
+
+  <div class="wrapper">
+
+    <p>Click the button to all the posts of a user</p>
+
+    <button onclick="requestall()">Display all the Data</button>
+    <div id="ress1"></div>
+    <div id="ress2"></div>
+    <div id="ress3"></div>
+    <div id="ress4"></div>
+    <div id="ress5"></div>
+    <div id="ress6"></div>
+    <div id="ress7"></div>
+    <div id="ress8"></div>
+    <div id="ress9"></div>
+    <div id="ress10"></div>
+
+  </div>
+</body>
+
+</html>

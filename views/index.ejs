@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta accept-language="en-US,en;q=0.9">
+  <title>Login form</title>
+  <link rel="stylesheet" href="dropdown.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+
+
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1 class="one">
+      <%=lang.Welcome%>
+    </h1><br>
+    <p class="des">
+      <%=lang.discrip%>
+    </p>
+
+    <p id="demo"> </p>
+    <form method="post" action="/main">
+      <input name="username" type="text" placeholder="<%=lang.un%>" required>
+      <input name="password" type="password" placeholder="<%=lang.pass%>" required>
+      <p class="recover">
+        <a href="#">
+          <%=lang.recpas%>
+        </a>
+      </p>
+      <button class="final" type="submit">
+        <%=lang.Signin%>
+      </button>
+    </form><br>
+
+    <p class="hel">
+      <%=lang.PreferrefLanguage%>
+    </p>
+    <form method="get" action="/">
+
+      <select name="lang">
+
+        <option value="en">English</option>
+        <option value="hn" selected>हिन्दी</option>
+        <option value="jap">日本</option>
+      </select>
+
+
+      <p>
+        <button class="lang" type="submit">
+          <%=lang.ChangeLanguage%>
+        </button>
+      </p>
+
+
+
+    </form>
+
+    <p class="or">
+      <%=lang.continue%>
+    </p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+      <i class="fab fa-github"></i>
+      <i class="fab fa-facebook"></i>
+    </div>
+    <div class="notmember">
+      <%=lang.member%> <a href="#">
+          <%=lang.register%>
+        </a>
+    </div>
+  </div>
+  <script>
+
+  </script>
+</body>
+
+</html>
